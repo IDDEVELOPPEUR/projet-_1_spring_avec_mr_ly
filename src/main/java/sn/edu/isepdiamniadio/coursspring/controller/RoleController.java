@@ -17,7 +17,7 @@ public class RoleController {
         return roleService.findAllRoles();
     }
     @GetMapping("/{id}")
-    public Role findRoleById(Long id){
+    public Role findRoleById(@PathVariable Long id){
         return roleService.findRoleById(id);
     }
     @PostMapping("/ajouter")

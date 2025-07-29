@@ -30,11 +30,11 @@ public class ProfesseurController {
     }
     //les partie du CRUD
     @GetMapping("/{id}")
-    public Professeur findProfesseurById(@org.springframework.web.bind.annotation.PathVariable Long id){
+    public Professeur findProfesseurById(@PathVariable Long id){
         return professeurService.findProfesseurById(id);
     }
     @PostMapping("/ajouter")
-    public Professeur saveProfesseur(@org.springframework.web.bind.annotation.RequestBody Professeur professeur){
+    public Professeur saveProfesseur(@RequestBody Professeur professeur){
         return professeurService.saveProfesseur(professeur);
     }
     @DeleteMapping("/supprimer/{id}")

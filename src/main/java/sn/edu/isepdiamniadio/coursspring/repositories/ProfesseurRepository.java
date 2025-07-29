@@ -24,4 +24,6 @@ public interface ProfesseurRepository extends JpaRepository<Professeur, Long>, J
                         criteriaBuilder.equal(root.get("adresse"), root.join("ecoles").get("adresse"))
                 );
     }
+
+
 }

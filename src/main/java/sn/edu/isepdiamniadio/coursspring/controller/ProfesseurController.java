@@ -4,9 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import sn.edu.isepdiamniadio.coursspring.domain.Professeur;
 import sn.edu.isepdiamniadio.coursspring.service.ProfesseurService;
 
@@ -29,5 +27,20 @@ public class ProfesseurController {
     @GetMapping("/memeAdresse")
     public List<Professeur> rechercherProfesseursMemeAdresse() {
         return professeurService.rechercherProfesseursMemeAdresse();
+    }
+    //les partie du CRUD
+    @GetMapping("/{id}")
+    public Professeur findProfesseurById(@org.springframework.web.bind.annotation.PathVariable Long id){
+        return professeurService.findProfesseurById(id);
+    }
+    @PostMapping("/ajouter")
+    public Professeur saveProfesseur(@org.springframework.web.bind.annotation.RequestBody Professeur professeur){
+        return professeurService.saveProfesseur(professeur);
+    }
+    @DeleteMapping("/supprimer/{id}")
+
+    public String deleteProfesseur(@PathVariable Long id) throws Exception {
+        professeurService.deleteProfesseur(professeurService.findProfesseurById(id));
+        return "OK";
     }
 }

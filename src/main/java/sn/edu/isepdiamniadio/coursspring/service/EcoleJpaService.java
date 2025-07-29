@@ -57,4 +57,7 @@ public class EcoleJpaService {
     public List<Ecole> getEcolesAvecSpecification(int idProf, Long id) {
         return ecoleJpaRepository.findAll(Specificat.avecSpecification(idProf, id));
     }
+
+
+
 }

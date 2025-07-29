@@ -24,4 +24,17 @@ public class ProfesseurService {
     public List<Professeur> rechercherProfesseursMemeAdresse() {
         return professeurRepository.findProfesseursMemeAdresse();
     }
+
+    public List<Professeur> findAll(){
+        return professeurRepository.findAll();
+    };
+    public Professeur findProfesseurById(Long id){
+        return professeurRepository.findById(id).orElse(null);
+    }
+    public Professeur saveProfesseur(Professeur professeur){
+        return professeurRepository.save(professeur);
+    }
+    public void deleteProfesseur(Professeur professeur){
+        professeurRepository.delete(professeur);
+    }
 }

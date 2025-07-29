@@ -28,6 +28,12 @@ public class SecurityConfig {
 
 
                         .requestMatchers(HttpMethod.GET,"/ecoles/adresse").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET,"/professeurs/**").hasRole("PROFESSEUR")
+                        .requestMatchers(HttpMethod.GET,"/utilisateurs/**").hasRole("PROFESSEUR")
+                        .requestMatchers(HttpMethod.GET,"/roles/**").hasRole("PROFESSEUR")
+                        .requestMatchers(HttpMethod.GET,"/ecoles/**").hasRole("PROFESSEUR")
+                        .requestMatchers(HttpMethod.GET,"/home/**").hasRole("PROFESSEUR")
+
                         .requestMatchers(HttpMethod.GET,"/ecoles/specification").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET,"/professeurs/memeAdresse").hasRole("ADMIN")
                         //toute autre url sera l'objet d'une authentification

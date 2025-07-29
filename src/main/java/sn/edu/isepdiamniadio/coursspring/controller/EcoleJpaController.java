@@ -36,6 +36,13 @@ public class EcoleJpaController {
         }
     }
 
+
+    @GetMapping("/specification")
+    public List<Ecole> specification(@RequestParam int idProf, @RequestParam Long id) {
+        return ecoleJpaService.getEcolesAvecSpecification(idProf, id);
+    }
+
+
     @GetMapping("/adresse")
     public ResponseEntity<?> rechercherEcolesParAdresse(@RequestParam String adresse) {
         List<EcoleDTO> ecoles = ecoleJpaService.findEcolesByAdresse(adresse);

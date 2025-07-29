@@ -3,6 +3,7 @@ package sn.edu.isepdiamniadio.coursspring.service;
 import org.springframework.stereotype.Service;
 import sn.edu.isepdiamniadio.coursspring.controller.dto.EcoleDTO;
 import sn.edu.isepdiamniadio.coursspring.domain.Ecole;
+import sn.edu.isepdiamniadio.coursspring.domain.Specificat;
 import sn.edu.isepdiamniadio.coursspring.repositories.EcoleJpaRepository;
 
 import java.util.ArrayList;
@@ -51,5 +52,9 @@ public class EcoleJpaService {
 
     public List<Ecole> findAllEcoles() {
         return ecoleJpaRepository.findAll();
+    }
+
+    public List<Ecole> getEcolesAvecSpecification(int idProf, Long id) {
+        return ecoleJpaRepository.findAll(Specificat.avecSpecification(idProf, id));
     }
 }

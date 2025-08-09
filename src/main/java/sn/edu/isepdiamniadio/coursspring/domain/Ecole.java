@@ -15,11 +15,6 @@ public class Ecole {
     private String adresse;
 
     @ManyToMany
-//    @JoinTable(
-//        name = "ecole_professeur",
-//        joinColumns = @JoinColumn(name = "ecole_id"),
-//        inverseJoinColumns = @JoinColumn(name = "professeur_id")
-//    )
     private List<Professeur> professeurs;
 
 
